@@ -1,14 +1,15 @@
 import { Link } from "wouter";
-import { ArrowRight, CheckCircle2, Download, Star, Leaf, Clock, Shield, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, Star, Leaf, Clock, Shield, Zap, Users, FileText, DollarSign, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import { PRODUCTS, TESTIMONIALS, STATS } from "@/lib/data";
+import { PRODUCTS, TESTIMONIALS, STATS, LAYERS, ECOSYSTEM_FLOW } from "@/lib/data";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663238387586/cXnAV7oZ5pE2hpYoSqpMuM/hero-main-hMaco5dy9HH8kgJnr57oRB.webp";
 
 export default function Home() {
-  const featured = PRODUCTS.filter((p) => p.featured);
+  const featured = PRODUCTS.filter((p) => p.featured).slice(0, 3);
+  const layerIcons = [Users, FileText, DollarSign, TrendingUp];
 
   return (
     <div className="min-h-screen bg-white">
@@ -207,6 +208,70 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ECOSYSTEM LAYERS ── */}
+      <section className="py-20 md:py-28 bg-ink">
+        <div className="container">
+          <div className="mb-12">
+            <span className="text-xs font-mono uppercase tracking-widest text-sage mb-3 block">Product Ecosystem</span>
+            <h2
+              className="text-4xl md:text-5xl text-white mb-4"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+            >
+              Built for every role in the program.
+            </h2>
+            <p className="text-white/50 text-sm max-w-xl leading-relaxed">
+              Every product serves the same peer support program — but the buyer at each layer is different. Each product feeds the next.
+            </p>
+          </div>
+
+          {/* Ecosystem flow */}
+          <div className="flex flex-wrap items-center gap-2 mb-12">
+            {ECOSYSTEM_FLOW.map((step, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="font-mono text-[10px] px-3 py-1.5 bg-white/8 rounded text-white/60 whitespace-nowrap">
+                  {step}
+                </span>
+                {i < ECOSYSTEM_FLOW.length - 1 && (
+                  <ArrowRight className="w-3 h-3 text-sage flex-shrink-0" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Layer Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {LAYERS.map((layer, i) => {
+              const Icon = layerIcons[i];
+              const layerProducts = PRODUCTS.filter(p => p.layer === layer.id);
+              const liveCount = layerProducts.filter(p => p.live).length;
+              return (
+                <Link key={layer.id} href={`/shop#layer${layer.id}`}>
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-5 hover:bg-white/8 hover:border-white/20 transition-all group h-full">
+                    <div className="w-8 h-8 rounded-md bg-sage/20 flex items-center justify-center mb-4">
+                      <Icon className="w-4 h-4 text-sage" />
+                    </div>
+                    <p className="font-mono text-[9px] uppercase tracking-widest text-white/30 mb-1">Layer {layer.id}</p>
+                    <h3
+                      className="text-lg text-white mb-2"
+                      style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+                    >
+                      {layer.shortLabel}
+                    </h3>
+                    <p className="text-xs text-white/50 leading-relaxed mb-4">{layer.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[9px] text-white/30">{layerProducts.length} products</span>
+                      {liveCount > 0 && (
+                        <span className="font-mono text-[9px] text-sage">{liveCount} live</span>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663238387586/cXnAV7oZ5pE2hpYoSqpMuM",
+    "access_key_id": "ASIAZV3A2ECZJU5ZKSLD",
+    "secret_access_key": "Ram06d/YbRIcunS9GqLTZxKHZJCxxK2xwT7L1z7E",
+    "session_token": "IQoJb3JpZ2luX2VjEAoaCXVzLWVhc3QtMSJHMEUCIQCAUjE/Wn92P/n/9dwmML0RIWYeSUc7OsEuFTsotM8obQIgDb+gAAfmqr8THeiAweHBamBDPKMIiGjPcGrw8oabKMgq/wMI0///////////ARAEGgw2NjUzODYwOTg4NjYiDG4LBpvtY/5XsxEjxCrTA+Ut+0beDiOkkM1OslwH5lwDtJ0REGxTnZt90nWWKKi+4YCvzOj/GG69q8gBngyRsOe0qZKLs8YBSp20T2MUk8MzuaFgsu5HVtk1BU+zFJ02WZ1ng+P1jkFTOWaCOxBeR8I/WYaBMQPdUzhXn+yw59CDFb/Td1atP+VRdglGZp+9tVrZmOPEhN5n25iRk2epC9YPowZNC8lKAMSgDOJlhZVGuz59+DIrkagLuYe084+a4cA5qDDK3Pgis4om/0cAxYCMwEkqqrH7vG9kVqYkeu6BYYc5ob/iUuKJtE3EsqF9OiTcqUUDTQFVnRYjHSgo61asJ8xurDWwpQIdWDS19aIQ/ol4lQNI1IGukVZmcG0E6VgQeLCi5HlBawu3vYV1RZ07CocUfYAQuMoUsZXPGxxMauDZRVOC+rlc/gWpQyxZE7any98iZMjfgjb1vCgICeS0Ki1nXE+Egi26QkOFgR+CLpj+HSFs1Q8AkhPqujsYA6NdXzAfZ+pxpmQ19EhnBKRxhv5cSuraDaEr7tPpNsT0JvNTFmvLPsdibZ1t1tYyUP3v2/OYV+Mh7Jvu06sp815ip9QdWa/dspInbnvctZVGazcDohw+o+cSsKegGNLdrk+iMJHhsNAGOp0BB7Arlpj9SOE5l07H6TZSg7Lux20fgqnElcM0KLYLvlB6aI8MbRtVtYJ9AGDeVpG9iEeDub9KpdlXJS3VVEE/OGCmx0RbWBvi9nExhU2+T1oIoG6la7lIPRiTt7+7G/TLtlVt4LOdqS6NCQf117wqoLvFKPOK8EbR4TUUhjyWf2pe1AOx4SmrKj60zwxmoTYiZrBRihxdziwcy1XD3g==",
+    "expiration": "2026-05-19T21:42:41.000Z"
+  },
+  "name": "session-supply-co",
+  "path": "/home/ubuntu/session-supply-co",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "mj6ycTP3hwmCL3t2UfNtaK",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "iF7JW23V6S2erwjqrzMcr2",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Katie Ireland",
+    "OWNER_OPEN_ID": "DC2rGRpRDsR8vyiHSv29hE",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "c74eb9ef-72fb-4e0e-bf36-c0d565e6b587",
+    "VITE_APP_ID": "cXnAV7oZ5pE2hpYoSqpMuM",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/310519663238387586/lktZBlVpeORXgxIl.png",
+    "VITE_APP_TITLE": "Session Supply Co.",
+    "VITE_FRONTEND_FORGE_API_KEY": "gjktmXc4t5rwh7yHu3a9YY",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
