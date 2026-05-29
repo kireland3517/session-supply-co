@@ -27,12 +27,15 @@ export default function Resources() {
       {/* Header */}
       <section className="pt-28 pb-12 bg-linen border-b border-border">
         <div className="container">
-          <span className="text-xs font-semibold text-clay uppercase tracking-widest mb-3 block">Free Library</span>
-          <h1 className="heading-display text-5xl md:text-6xl text-ink mb-3">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-clay mb-3 block">Free Library</span>
+          <h1
+            className="text-5xl md:text-6xl text-ink mb-3"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+          >
             Free Resources
           </h1>
-          <p className="text-base text-ink/55 max-w-lg">
-            Sample materials, templates, and tools — free to download. No purchase required for most resources.
+          <p className="text-base text-ink/55 max-w-xl leading-relaxed">
+            Sample tools, templates, and guides from Recovery Systems Group — free to download. Start here before you buy anything.
           </p>
         </div>
       </section>
