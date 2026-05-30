@@ -104,7 +104,7 @@ export default function Resources() {
                     <span className="text-xs bg-linen text-ink/60 px-2.5 py-1 rounded-full font-medium">
                       {resource.type}
                     </span>
-                    {resource.emailRequired && (
+                    {resource.gated && (
                       <span className="text-xs bg-slate-light text-slate-brand px-2.5 py-1 rounded-full font-medium flex items-center gap-1">
                         <Lock className="w-2.5 h-2.5" />
                         Email required
@@ -125,11 +125,9 @@ export default function Resources() {
 
                 <div className="flex items-center justify-between pt-3 border-t border-border mt-auto">
                   <div className="flex items-center gap-3 text-xs text-ink/40">
-                    <span>{resource.pages} page{resource.pages !== 1 ? "s" : ""}</span>
-                    <span>·</span>
-                    <span>{resource.format}</span>
+                    <span>{resource.type}</span>
                   </div>
-                  {resource.emailRequired ? (
+                  {resource.gated ? (
                     <button
                       onClick={() => toast.info("Enter your email above to receive this resource.")}
                       className="flex items-center gap-1.5 text-sm font-medium text-slate-brand hover:text-slate-brand/80 transition-colors"

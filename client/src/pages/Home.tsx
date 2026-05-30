@@ -13,7 +13,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import { PRODUCTS, LAYERS, ECOSYSTEM_FLOW } from "@/lib/data";
+import { PRODUCTS, FUNNEL_LOGIC } from "@/lib/data";
 
 const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663238387586/cXnAV7oZ5pE2hpYoSqpMuM/hero-main-hMaco5dy9HH8kgJnr57oRB.webp";
@@ -100,7 +100,6 @@ const TESTIMONIALS = [
 
 export default function Home() {
   const featured = PRODUCTS.filter((p) => p.featured).slice(0, 3);
-  const layerIcons = [Users, FileText, DollarSign, TrendingUp];
 
   return (
     <div className="min-h-screen bg-white">
@@ -334,7 +333,7 @@ export default function Home() {
               href="/shop"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-forest hover:text-forest/80 transition-colors self-start md:self-auto"
             >
-              View all {PRODUCTS.length} products <ArrowRight className="w-3.5 h-3.5" />
+              View all products <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -346,76 +345,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── ECOSYSTEM LAYERS ── */}
+      {/* ── PRODUCT FUNNEL ── */}
       <section className="py-20 md:py-28 bg-linen border-y border-border">
         <div className="container">
           <div className="mb-12">
             <span className="text-[10px] font-mono uppercase tracking-widest text-clay mb-3 block">
-              Product Ecosystem
+              How the Products Work Together
             </span>
             <h2
               className="text-4xl md:text-5xl text-ink mb-4"
               style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
             >
-              Built for every role in the program.
+              Diagnose. Fix the supervision gap.
+              <br />Build the infrastructure.
             </h2>
             <p className="text-sm text-ink/50 max-w-xl leading-relaxed">
-              An org leader buys the decision framework. They realize they need help. They hire us to consult. Their supervisors attend our CEU training. Their peer specialists buy the documentation templates. Each product feeds the next.
+              Each product addresses a specific, research-documented barrier. They're designed to be used together — or independently, depending on where you are.
             </p>
           </div>
 
-          {/* Ecosystem flow */}
-          <div className="flex flex-wrap items-center gap-2 mb-10">
-            {ECOSYSTEM_FLOW.map((step, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <span className="font-mono text-[10px] px-3 py-1.5 bg-white border border-border rounded-sm text-ink/50 whitespace-nowrap">
-                  {step}
-                </span>
-                {i < ECOSYSTEM_FLOW.length - 1 && (
-                  <ArrowRight className="w-3 h-3 text-ink/25 flex-shrink-0" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {FUNNEL_LOGIC.map((step) => (
+              <div key={step.step} className="bg-white border border-border rounded-sm p-5 flex flex-col gap-3 hover:shadow-md hover:-translate-y-0.5 transition-all">
+                <span className="font-mono text-[9px] text-ink/25 uppercase tracking-widest">0{step.step}</span>
+                <div>
+                  <p className="font-mono text-[9px] uppercase tracking-widest text-clay mb-1">{step.role}</p>
+                  <h3
+                    className="text-lg text-ink leading-snug"
+                    style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+                  >
+                    {step.product}
+                  </h3>
+                </div>
+                <p className="text-xs text-ink/50 leading-relaxed flex-1">{step.desc}</p>
+                {step.slug ? (
+                  <Link href={`/products/${step.slug}`} className="inline-flex items-center gap-1 text-xs text-forest font-medium hover:gap-1.5 transition-all">
+                    View product <ArrowRight className="w-3 h-3" />
+                  </Link>
+                ) : (
+                  <Link href="/services" className="inline-flex items-center gap-1 text-xs text-forest font-medium hover:gap-1.5 transition-all">
+                    Learn more <ArrowRight className="w-3 h-3" />
+                  </Link>
                 )}
               </div>
             ))}
-          </div>
-
-          {/* Layer Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {LAYERS.map((layer, i) => {
-              const Icon = layerIcons[i];
-              const layerProducts = PRODUCTS.filter((p) => p.layer === layer.id);
-              const liveCount = layerProducts.filter((p) => p.live).length;
-              return (
-                <Link key={layer.id} href={`/shop#layer${layer.id}`}>
-                  <div className="bg-white border border-border rounded-sm p-5 hover:shadow-md hover:-translate-y-0.5 transition-all group h-full flex flex-col">
-                    <div className="w-8 h-8 rounded-sm bg-sage-light flex items-center justify-center mb-4">
-                      <Icon className="w-4 h-4 text-forest" />
-                    </div>
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-ink/30 mb-1">
-                      Layer {layer.id}
-                    </p>
-                    <h3
-                      className="text-lg text-ink mb-2"
-                      style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
-                    >
-                      {layer.shortLabel}
-                    </h3>
-                    <p className="text-xs text-ink/50 leading-relaxed mb-4 flex-1">
-                      {layer.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-[9px] text-ink/30">
-                        {layerProducts.length} products
-                      </span>
-                      {liveCount > 0 && (
-                        <span className="font-mono text-[9px] text-forest">
-                          {liveCount} live
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
           </div>
         </div>
       </section>
