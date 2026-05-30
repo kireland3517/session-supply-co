@@ -16,7 +16,7 @@ import ProductCard from "@/components/ProductCard";
 import { PRODUCTS, FUNNEL_LOGIC } from "@/lib/data";
 
 const HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663238387586/cXnAV7oZ5pE2hpYoSqpMuM/hero-main-hMaco5dy9HH8kgJnr57oRB.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663238387586/cXnAV7oZ5pE2hpYoSqpMuM/hero-rsg-v2-einzPutQvNR53m8D828VSg.webp";
 
 const RESEARCH_FINDINGS = [
   {
